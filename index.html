@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device.width , initial-scale=1.0" />
+    <meta http-equiv="X-UA-compitable" content="ie=edge" />
+    <title>web component</title>
+</head>
+
+<body>
+    <template id="my-template">
+        <style>
+            .c-card {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                transition: 0.3s;
+                width: 30.7%;
+                box-sizing: border-box;
+                margin: 20px;
+                float: left;
+            }
+
+            .c-card__header {
+                border: 1px solid #ddd;
+                width: 100%;
+                height: 200px;
+                background-color: #3f51b5;
+            }
+
+            .c-card:hover {
+                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            }
+
+            .c-card__body {
+                padding: 2px 16px;
+            }
+
+            .c-card__button {
+                padding: 10px;
+                border: none;
+                cursor: pointer;
+            }
+        </style>
+
+
+        <div class="c-card">
+
+            <header class="c-card__header">
+
+            </header>
+
+            <div class="c-card__body">
+                <slot name="title" class="c-card__title">
+                    Card
+                </slot>
+
+
+                <slot name="description" class="c-card__description">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </slot>
+                <button class="c-card__button">Read More</button>
+
+            </div>
+
+
+        </div>
+
+    </template>
+    <my-card bg-color="#9c27b0">
+
+        <h1 slot="title"> My Title</h1>
+        <p slot="description"> Test another description</p>
+    </my-card>
+    <my-card>
+        <h1 slot="title"> Card</h1>
+        <p slot="description">Lorem ipsum, consectetur vel magnam eligendi fugit!</p>
+    </my-card>
+    <my-card bg-color="#125b65">
+        <h1 slot="title"> Custom Card</h1>
+        <p slot="description">Test Custom description</p>
+    </my-card>
+
+    <script src="app.js"> </script>
+</body>
+
+</html>
